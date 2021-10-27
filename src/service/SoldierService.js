@@ -4,12 +4,12 @@ import axios from 'axios'
 // const soldier_mangement_system
 //This is the component with the errors before the code broke after I create the listSoldier
 
-const
+const SOLDIER_API_BASE_URL = "http://localhost:8080/api/soldiers"
 
-export default class SoldierService {
+class SoldierService {
 
     getSoldier(){
-        return axios.get(soldiers_mangement_system)
+        return axios.get(SOLDIER_API_BASE_URL)
     }
 }
 
