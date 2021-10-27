@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios"
 
 const SOLDIER_API_BASE_URL = "http://localhost:8080/api/soldiers"
 
@@ -24,6 +24,7 @@ deleteSoldier(soldier, soldierId){
     return axios.delete(SOLDIER_API_BASE_URL + '/' + soldierId)
 
 }
+
 }
 
 export default new SoldierService
