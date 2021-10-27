@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SoldierService from '../services/SoldierService'
+import SoldierService from '../service/SoldierService';
 
 class UpdateSoldier extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class UpdateSoldier extends Component {
     componentDidMount(){
         SoldierService.getSoldierById(this.state.id).then( (res) =>{
             let soldier = res.data;
-            this.setState({firstName: employee.firstName,
+            this.setState({firstName: soldier.firstName,
                 lastName: soldier.lastName,
                 rank : soldier.emailId
             });
@@ -33,7 +33,7 @@ class UpdateSoldier extends Component {
         let soldier = {firstName: this.state.firstName, lastName: this.state.lastName, rank: this.state.rank, skill: this.state.skill};
         console.log('soldier => ' + JSON.stringify(soldier));
         console.log('id => ' + JSON.stringify(this.state.id));
-        EmployeeService.updateSoldier(employee, this.state.id).then( res => {
+        SoldierService.updateSoldier(soldier, this.state.id).then( res => {
             this.props.history.push('/soldiers');
         });
     }
