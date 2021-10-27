@@ -14,27 +14,27 @@ class UpdateSoldier extends Component {
         }
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
-        this.updateEmployee = this.updateEmployee.bind(this);
-        this.updateEmployee = this.updateEmployee.bind(this);
+        this.UpdateSoldier = this.UpdateSoldier.bind(this);
+        this.UpdateSoldier = this.updateSoldier.bind(this);
     }
 
     componentDidMount(){
-        EmployeeService.getEmployeeById(this.state.id).then( (res) =>{
-            let employee = res.data;
+        SoldierService.getSoldierById(this.state.id).then( (res) =>{
+            let soldier = res.data;
             this.setState({firstName: employee.firstName,
-                lastName: employee.lastName,
-                emailId : employee.emailId
+                lastName: soldier.lastName,
+                rank : soldier.emailId
             });
         });
     }
 
-    updateEmployee = (e) => {
+    updateSoldier = (e) => {
         e.preventDefault();
-        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
-        console.log('employee => ' + JSON.stringify(employee));
+        let soldier = {firstName: this.state.firstName, lastName: this.state.lastName, rank: this.state.rank, skill: this.state.skill};
+        console.log('soldier => ' + JSON.stringify(soldier));
         console.log('id => ' + JSON.stringify(this.state.id));
-        EmployeeService.updateEmployee(employee, this.state.id).then( res => {
-            this.props.history.push('/employees');
+        EmployeeService.updateSoldier(employee, this.state.id).then( res => {
+            this.props.history.push('/soldiers');
         });
     }
     
@@ -46,12 +46,16 @@ class UpdateSoldier extends Component {
         this.setState({lastName: event.target.value});
     }
 
-    changeEmailHandler= (event) => {
-        this.setState({emailId: event.target.value});
+    changeRankHandler= (event) => {
+        this.setState({rank: event.target.value});
+    }
+
+    changeSkillHandler= (event) => {
+        this.setState({skill: event.target.value});
     }
 
     cancel(){
-        this.props.history.push('/employees');
+        this.props.history.push('/soldiers');
     }
 
     render() {
@@ -61,7 +65,7 @@ class UpdateSoldier extends Component {
                    <div className = "container">
                         <div className = "row">
                             <div className = "card col-md-6 offset-md-3 offset-md-3">
-                                <h3 className="text-center">Update Employee</h3>
+                                <h3 className="text-center">Update Soldier</h3>
                                 <div className = "card-body">
                                     <form>
                                         <div className = "form-group">
@@ -75,12 +79,12 @@ class UpdateSoldier extends Component {
                                                 value={this.state.lastName} onChange={this.changeLastNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label> Email Id: </label>
-                                            <input placeholder="Email Address" name="emailId" className="form-control" 
-                                                value={this.state.emailId} onChange={this.changeEmailHandler}/>
+                                            <label> Rank: </label>
+                                            <input placeholder="Rank" name="rank" className="form-control" 
+                                                value={this.state.rank} onChange={this.changeRankHandler}/>
                                         </div>
 
-                                        <button className="btn btn-success" onClick={this.updateEmployee}>Save</button>
+                                        <button className="btn btn-success" onClick={this.updateSoldier}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                     </form>
                                 </div>
