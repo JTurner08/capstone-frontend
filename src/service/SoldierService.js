@@ -13,14 +13,17 @@ createSoldier(soldier){
 }
 
 getSoldierByID(soldierId){
-    return axios.post(SOLDIER_API_BASE_URL + '/' + soldierId)
+    return axios.get(SOLDIER_API_BASE_URL + '/' + soldierId)
 }
 
 updateSoldier(soldier, soldierId){
-    return axios.post(SOLDIER_API_BASE_URL + '/' + soldierId, soldier)
+    return axios.put(SOLDIER_API_BASE_URL + '/' + soldierId, soldier)
 
 }
+deleteSoldier(soldier, soldierId){
+    return axios.delete(SOLDIER_API_BASE_URL + '/' + soldierId)
 
+}
 }
 
 export default new SoldierService
