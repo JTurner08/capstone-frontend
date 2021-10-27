@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SoldierService from '../services/SoldierService'
+import SoldierService from '../service/SoldierService';
 
 class ListSoldier extends Component {
       constructor(props)
@@ -15,7 +15,7 @@ class ListSoldier extends Component {
       }
     
      componentDidMount() {
-         SoldierService.getStudents().then((res) => {
+         SoldierService.getSoldier().then((res) => {
              this.setState({soldiers:res.data});
          });
      }
