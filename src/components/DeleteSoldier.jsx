@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SoldierService from '../services/SoldierService'
+import SoldierService from '../service/SoldierService';
 
 class DeleteSoldier extends Component {
     constructor(props)
@@ -40,7 +40,7 @@ class DeleteSoldier extends Component {
         };
 
         console.log(soldier);
-        StudentService.deleteSoldier(this.state.id).then(res => {
+        SoldierService.deleteSoldier(this.state.id).then(res => {
             
             this.props.history.push('/soldier');
         })
