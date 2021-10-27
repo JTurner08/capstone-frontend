@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-// I need to finish back end
-// const Mangement_system
-//This is the component with the errors before the code broke after I create the listSoldierComponent
+// backend won't connect?
+// const soldier_mangement_system
+//This is the component with the errors before the code broke after I create the listSoldier
 
 const
 
