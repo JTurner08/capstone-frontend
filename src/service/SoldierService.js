@@ -9,12 +9,18 @@ class SoldierService {
     }
 
 createSoldier(soldier){
-    return axios.post(SOLDIER_API_BASE_URL)
+    return axios.post(SOLDIER_API_BASE_URL, soldier)
 }
 
-getSoldierByID(soldier){
-    return
+getSoldierByID(soldierId){
+    return axios.post(SOLDIER_API_BASE_URL + '/' + soldierId)
 }
+
+updateSoldier(soldier, soldierId){
+    return axios.post(SOLDIER_API_BASE_URL + '/' + soldierId, soldier)
+
+}
+
 }
 
 export default new SoldierService
