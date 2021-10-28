@@ -84,7 +84,7 @@ class DeleteSoldier extends Component {
                                    </div>   
 
                                    <div className="form-group">
-                                      <label>Soldier Skill: </label>
+                                      <label>Soldier SKill: </label>
                                       <input placeholder="skill" readOnly="true" name="skill" className="form-control"
                                          value={this.state.skill} onChange={this.skillHandler} />
                                    </div>   
