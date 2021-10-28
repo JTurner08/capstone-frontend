@@ -74,11 +74,7 @@ class UpdateSoldier extends Component {
                                             <input placeholder="Rank" name="rank" className="form-control" 
                                                 value={this.state.rank} onChange={this.rankHandler}/>
                                         </div>
-                                        <div className = "form-group">
-                                            <label> Skill: </label>
-                                            <input placeholder="Skill" name="Skill" className="form-control" 
-                                                value={this.state.skill} onChange={this.skillHandler}/>
-                                        </div>
+                                        
 
                                         <button className="btn btn-success" onClick={this.updateSoldier}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
