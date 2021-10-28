@@ -7,14 +7,16 @@ class AddSoldier extends Component {
         super(props)
         this.state={
            id: '',
-           name:'',
+           firstName:'',
+           lastName:'',
            rank:'',
            skill:''
         }
       
         this.saveSoldier = this.saveSoldier.bind(this)
         this.idHandler = this.idHandler.bind(this);
-        this.nameHandler = this.nameHandler.bind(this);
+        this.firstnameHandler = this.firstnameHandler.bind(this);
+        this.lastnameHandler = this.lastnameHandler.bind(this);
         this.rankHandler = this.rankHandler.bind(this);
         this.skillHandler = this.skillHandler.bind(this);
 
@@ -24,9 +26,10 @@ class AddSoldier extends Component {
     idHandler=(event) => { this.setState({id: event.target.value});}
 
 
-    nameHandler=(event) => {this.setState({name: event.target.value});}
+    firstnameHandler=(event) => {this.setState({firstName: event.target.value});}
 
-     
+    lastnameHandler=(event) => {this.setState({lastName: event.target.value});}
+
     rankHandler=(event) => {this.setState({rank: event.target.value});}
 
     skillHandler=(event) => {this.setState({skill: event.target.value});}
@@ -35,7 +38,8 @@ class AddSoldier extends Component {
         e.preventDefault();
         let soldier={
            id: this.state.id,
-           name: this.state.name,
+           firstName: this.state.firstName,
+           lastName: this.state.lastName,
            rank: this.state.rank,
            skill: this.state.skill,
         };
@@ -70,10 +74,15 @@ class AddSoldier extends Component {
                                          value={this.state.id} onChange={this.idHandler} />
                                    </div>   
                                    <div className="form-group">
-                                      <label>Soldier Name: </label>
+                                      <label>Soldier first Name: </label>
                                       <input placeholder="Name" name="name" className="form-control"
-                                         value={this.state.name} onChange={this.nameHandler} />
+                                         value={this.state.firstName} onChange={this.firstnameHandler} />
                                    </div>   
+                                   <div className="form-group">
+                                   <label>Soldier lastname Name: </label>
+                                   <input placeholder="Name" name="name" className="form-control"
+                                      value={this.state.lastName} onChange={this.lastnameHandler} />
+                                </div>   
                                    <div className="form-group">
                                       <label>Soldier Rank: </label>
                                       <input placeholder="rank" name="rank" className="form-control"
