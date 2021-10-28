@@ -8,7 +8,8 @@ class DeleteSoldier extends Component {
         
              this.state={
                  id: this.props.match.params.id,
-                 name:'',
+                 firstname:'',
+                 lastname:'',
                  rank:'',
                  skill:'',
                  
@@ -24,7 +25,8 @@ class DeleteSoldier extends Component {
         SoldierService.getSoldierById(this.state.id).then((res) =>{
           let soldier = res.data;
           this.setState({
-                name:soldier.name,
+                firstname:soldier.firstname,
+                lastname:soldier.lastname,
                 rank:soldier.rank,
                 skill:soldier.skill
                 
@@ -40,7 +42,8 @@ class DeleteSoldier extends Component {
         e.preventDefault();
         let soldier={
            id: this.state.id,
-           name: this.state.name,
+           firstname: this.state.firstname,
+           lastname: this.state.lastname,
            rank: this.state.rank,
            skill: this.state.skill
         };
@@ -73,11 +76,17 @@ class DeleteSoldier extends Component {
                                          value={this.state.id} onChange={this.idHandler} />
                                    </div>   
                                    <div className="form-group">
-                                      <label>Soldier Name: </label>
+                                      <label>Soldier first name: </label>
                                       <input placeholder="Name" readOnly= "true" name="name" className="form-control"
-                                         value={this.state.name} onChange={this.nameHandler} />
-                                   </div>   
+                                         value={this.state.firstname} onChange={this.firstnameHandler} />
+                                   </div> 
                                    <div className="form-group">
+                                      <label>Soldier last name: </label>
+                                      <input placeholder="Name" readOnly= "true" name="name" className="form-control"
+                                         value={this.state.lastname} onChange={this.lastnameHandler} />
+                                   </div> 
+                                    
+                                    <div className="form-group">
                                       <label>Soldier Rank: </label>
                                       <input placeholder="rank" readOnly="true" name="rank" className="form-control"
                                          value={this.state.rank} onChange={this.rankHandler} />
