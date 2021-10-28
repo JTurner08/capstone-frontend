@@ -3,7 +3,7 @@ Capstone project for Per Scholas. I created a soldiers management system to trac
 
 Tech Stack
 
-Client: React, Redux, React Helmet, React Form Hooks, Material UI
+Client: React, React, React Form Hooks,
 
 Server: Sprint Boot
 
