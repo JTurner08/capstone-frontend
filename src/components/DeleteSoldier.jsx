@@ -9,7 +9,9 @@ class DeleteSoldier extends Component {
              this.state={
                  id: this.props.match.params.id,
                  name:'',
-                 grade:''
+                 rank:'',
+                 skill:'',
+                 
              }
      
         
@@ -21,8 +23,11 @@ class DeleteSoldier extends Component {
      {
         SoldierService.getSoldierById(this.state.id).then((res) =>{
           let soldier = res.data;
-          this.setState({name:soldier.name,
-                  grade:soldier.grade
+          this.setState({
+                name:soldier.name,
+                rank:soldier.rank,
+                skill:soldier.skill
+                
                 });
         });
            
@@ -36,7 +41,8 @@ class DeleteSoldier extends Component {
         let soldier={
            id: this.state.id,
            name: this.state.name,
-           rank: this.state.rank
+           rank: this.state.rank,
+           skill: this.state.skill
         };
 
         console.log(soldier);
@@ -73,8 +79,14 @@ class DeleteSoldier extends Component {
                                    </div>   
                                    <div className="form-group">
                                       <label>Soldier Rank: </label>
-                                      <input placeholder="Grade" readOnly="true" name="grade" className="form-control"
-                                         value={this.state.grade} onChange={this.gradeHandler} />
+                                      <input placeholder="rank" readOnly="true" name="rank" className="form-control"
+                                         value={this.state.rank} onChange={this.rankHandler} />
+                                   </div>   
+
+                                   <div className="form-group">
+                                      <label>Soldier Skill: </label>
+                                      <input placeholder="skill" readOnly="true" name="skill" className="form-control"
+                                         value={this.state.skill} onChange={this.skillHandler} />
                                    </div>   
                                     <button className="btn btn-success" onClick={this.DeleteSoldier}> Delete </button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}> Cancel </button>                    
