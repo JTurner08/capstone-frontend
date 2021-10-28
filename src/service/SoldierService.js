@@ -1,27 +1,27 @@
 import axios from "axios"
 
-const SOLDIER_API_BASE_URL = "http://localhost:8080/api/soldiers"
+const SOLDIER_API_BASE_URL = "http://localhost:8080/api"
 
 class SoldierService {
 
-    getSoldier(){
-        return axios.get(SOLDIER_API_BASE_URL)
+    getSoldiers(){
+        return axios.get(SOLDIER_API_BASE_URL + '/soldier')
     }
 
 createSoldier(soldier){
-    return axios.post(SOLDIER_API_BASE_URL, soldier)
+    return axios.post(SOLDIER_API_BASE_URL + '/add-soldier' +soldier)
 }
 
 getSoldierByID(soldierId){
-    return axios.get(SOLDIER_API_BASE_URL + '/' + soldierId)
+    return axios.get(SOLDIER_API_BASE_URL + '/soldier' + soldierId)
 }
 
-updateSoldier(soldier, soldierId){
-    return axios.put(SOLDIER_API_BASE_URL + '/' + soldierId, soldier)
+updateSoldier(soldierId){
+    return axios.put(SOLDIER_API_BASE_URL + '/soldiers' + soldierId)
 
 }
-deleteSoldier(soldier, soldierId){
-    return axios.delete(SOLDIER_API_BASE_URL + '/' + soldierId)
+deleteSoldier(soldierId){
+    return axios.delete(SOLDIER_API_BASE_URL + '/soldiers' + soldierId)
 
 }
 
