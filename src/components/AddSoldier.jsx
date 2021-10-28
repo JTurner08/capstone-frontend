@@ -12,36 +12,32 @@ class AddSoldier extends Component {
            skill:''
         }
       
+        this.saveSoldier = this.saveSoldier.bind(this);
         this.idHandler = this.idHandler.bind(this);
         this.nameHandler = this.nameHandler.bind(this);
         this.rankHandler = this.rankHandler.bind(this);
+        this.skillHandler = this.skillHandler.bind(this);
 
     }//constructor
 
      
-    idHandler=(event) => {
-        this.setState({
-             id: event.target.value});
-    }
+    idHandler=(event) => { this.setState({id: event.target.value});}
 
 
-    nameHandler=(event) => {
-        this.setState({
-           name: event.target.value});
-    }
+    nameHandler=(event) => {this.setState({name: event.target.value});}
 
      
-    rankHandler=(event) => {
-        this.setState({
-             grade: event.target.value});
-    }
+    rankHandler=(event) => {this.setState({rank: event.target.value});}
+
+    skillHandler=(event) => {this.setState({skill: event.target.value});}
 
     saveSoldier = (e) => {
         e.preventDefault();
         let soldier={
            id: this.state.id,
            name: this.state.name,
-           grade: this.state.grade
+           rank: this.state.rank,
+           skill: this.state.skill,
         };
         console.log(soldier);
         SoldierService.createSoldier(soldier).then(res =>{
@@ -83,6 +79,11 @@ class AddSoldier extends Component {
                                       <input placeholder="rank" name="rank" className="form-control"
                                          value={this.state.rank} onChange={this.rankHandler} />
                                    </div>   
+                                   <div className="form-group">
+                                   <label>Soldier Skill: </label>
+                                   <input placeholder="skill" name="skill" className="form-control"
+                                      value={this.state.skill} onChange={this.skillHandler} />
+                                </div>   
                                     <button className="btn btn-success" onClick={this.saveSoldier}> Save </button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}> Cancel </button>                    
                               </form>
