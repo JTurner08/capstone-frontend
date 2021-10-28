@@ -15,7 +15,7 @@ class ListSoldier extends Component {
       }
     
      componentDidMount() {
-         SoldierService.getSoldier().then((res) => {
+         SoldierService.getSoldiers().then((res) => {
              this.setState({soldiers:res.data});
          });
      }
@@ -71,7 +71,7 @@ class ListSoldier extends Component {
                         </thead>
                         <tbody>
                             {
-                                this.state.soldier.map(
+                                this.state.soldiers.map(
                                     soldier =>
                                      <tr key={soldier.id}>
                                          <td>{soldier.id}</td>
