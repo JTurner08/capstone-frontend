@@ -7,30 +7,30 @@ class UpdateSoldier extends Component {
 
         this.state = {
             id: this.props.match.params.id,
-            firstName: '',
-            lastName: '',
+            name: '',
             rank: '',
             skill: ''
         }
-        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
-        this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
-        this.UpdateSoldier = this.UpdateSoldier.bind(this);
-        this.UpdateSoldier = this.updateSoldier.bind(this);
+        this.nameHandler = this.nameHandler.bind(this);
+        this.rankHandler = this.rankHandler.bind(this);
+        this.skillHandler = this.skillHandler.bind(this);
     }
 
     componentDidMount(){
         SoldierService.getSoldierById(this.state.id).then( (res) =>{
             let soldier = res.data;
-            this.setState({firstName: soldier.firstName,
-                lastName: soldier.lastName,
-                rank : soldier.emailId
+            this.setState({
+                name: soldier.name,
+                rank : soldier.rank,
+                skill: soldier.skill
+
             });
         });
     }
 
     updateSoldier = (e) => {
         e.preventDefault();
-        let soldier = {firstName: this.state.firstName, lastName: this.state.lastName, rank: this.state.rank, skill: this.state.skill};
+        let soldier = {name: this.state.name, rank: this.state.rank, skill: this.state.skill};
         console.log('soldier => ' + JSON.stringify(soldier));
         console.log('id => ' + JSON.stringify(this.state.id));
         SoldierService.updateSoldier(soldier, this.state.id).then( res => {
@@ -38,19 +38,15 @@ class UpdateSoldier extends Component {
         });
     }
     
-    changeFirstNameHandler= (event) => {
+    nameHandler= (event) => {
         this.setState({firstName: event.target.value});
     }
 
-    changeLastNameHandler= (event) => {
-        this.setState({lastName: event.target.value});
-    }
-
-    changeRankHandler= (event) => {
+    rankHandler= (event) => {
         this.setState({rank: event.target.value});
     }
 
-    changeSkillHandler= (event) => {
+    skillHandler= (event) => {
         this.setState({skill: event.target.value});
     }
 
@@ -61,7 +57,6 @@ class UpdateSoldier extends Component {
     render() {
         return (
             <div>
-                <br></br>
                    <div className = "container">
                         <div className = "row">
                             <div className = "card col-md-6 offset-md-3 offset-md-3">
@@ -69,19 +64,20 @@ class UpdateSoldier extends Component {
                                 <div className = "card-body">
                                     <form>
                                         <div className = "form-group">
-                                            <label> First Name: </label>
-                                            <input placeholder="First Name" name="firstName" className="form-control" 
-                                                value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
+                                            <label> Name: </label>
+                                            <input placeholder="name" name="name" className="form-control" 
+                                                value={this.state.name} onChange={this.nameHandler}/>
                                         </div>
-                                        <div className = "form-group">
-                                            <label> Last Name: </label>
-                                            <input placeholder="Last Name" name="lastName" className="form-control" 
-                                                value={this.state.lastName} onChange={this.changeLastNameHandler}/>
-                                        </div>
+                                        
                                         <div className = "form-group">
                                             <label> Rank: </label>
                                             <input placeholder="Rank" name="rank" className="form-control" 
-                                                value={this.state.rank} onChange={this.changeRankHandler}/>
+                                                value={this.state.rank} onChange={this.rankHandler}/>
+                                        </div>
+                                        <div className = "form-group">
+                                            <label> Skill: </label>
+                                            <input placeholder="Skill" name="Skill" className="form-control" 
+                                                value={this.state.skill} onChange={this.skillHandler}/>
                                         </div>
 
                                         <button className="btn btn-success" onClick={this.updateSoldier}>Save</button>
