@@ -25,13 +25,10 @@ class ViewSoldier extends Component {
                     <h3 className = "text-center"> View Soldier Details</h3>
                     <div className = "card-body">
                         <div className = "row">
-                            <label> Soldier First Name: </label>
-                            <div> { this.state.soldier.firstName }</div>
+                            <label> Soldier Name: </label>
+                            <div> { this.state.soldier.firstname }</div>
                         </div>
-                        <div className = "row">
-                            <label> Soldier Last Name: </label>
-                            <div> { this.state.soldier.lastName }</div>
-                        </div>
+                       
                         <div className = "row">
                             <label> Soldier Rank: </label>
                             <div> { this.state.soldier.rank }</div>
