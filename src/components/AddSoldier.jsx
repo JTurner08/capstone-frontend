@@ -12,7 +12,7 @@ class AddSoldier extends Component {
            skill:''
         }
       
-        this.saveSoldier = this.saveSoldier.bind(this);
+        this.saveSoldier = this.saveSoldier.bind(this)
         this.idHandler = this.idHandler.bind(this);
         this.nameHandler = this.nameHandler.bind(this);
         this.rankHandler = this.rankHandler.bind(this);
