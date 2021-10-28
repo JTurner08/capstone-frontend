@@ -64,8 +64,10 @@ class ListSoldier extends Component {
                         <thead>
                             <tr>
                                 <th>Soldier Id</th>
-                                <th>Soldier Name</th>
+                                <th>Soldier firstname</th>
+                                <th>Soldier lastname</th>
                                 <th>Soldier Rank</th>
+                                <th>Soldier Skill</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -75,7 +77,8 @@ class ListSoldier extends Component {
                                     soldier =>
                                      <tr key={soldier.id}>
                                          <td>{soldier.id}</td>
-                                         <td>{soldier.name}</td>
+                                         <td>{soldier.firstname}</td>
+                                         <td>{soldier.lastname}</td>
                                          <td>{soldier.rank}</td>
                                          <td>{soldier.skill}</td>
                                          <td>
