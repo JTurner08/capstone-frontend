@@ -22,7 +22,7 @@ class UpdateSoldier extends Component {
     }
 
      componentDidMount(){
-        SoldierService.getSoldierByID(this.state.id).then( (res) =>{
+        SoldierService.getSoldierById(this.state.id).then( (res) =>{
             let soldier = res.data;
             this.setState({
                 firstName: soldier.firstname,
