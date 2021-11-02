@@ -12,7 +12,7 @@ createSoldier(soldier){
     return axios.post(SOLDIER_API_BASE_URL + '/add-soldier', soldier)
 }
 
-getSoldierByID(soldierId){
+getSoldierById(soldierId){
     return axios.get(SOLDIER_API_BASE_URL + '/soldier/' + soldierId)
 }
 
@@ -23,7 +23,7 @@ updateSoldier(soldier,id){
 
 
 deleteSoldier(soldierId) {
-    return axios.delete(SOLDIER_API_BASE_URL + '/soldiers/' + soldierId)
+    return axios.delete(SOLDIER_API_BASE_URL + '/soldier/' + soldierId)
 
 }
 
