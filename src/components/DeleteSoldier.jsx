@@ -51,14 +51,14 @@ class DeleteSoldier extends Component {
         console.log(soldier);
         SoldierService.deleteSoldier(this.state.id).then(res => {
             
-            this.props.history.push('/soldier');
+            this.props.history.push('/soldiers');
         })
       
         
     }
 
     cancel(){
-        this.props.history.push('/soldier');
+        this.props.history.push('/soldiers');
     }
 
     render() {
