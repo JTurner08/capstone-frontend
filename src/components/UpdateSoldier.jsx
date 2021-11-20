@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SoldierService from '../service/SoldierService';
 
 
-
+// updated component section
 class UpdateSoldier extends Component {
     constructor(props) {
         super(props)
