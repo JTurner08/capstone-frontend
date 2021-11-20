@@ -18,7 +18,7 @@ class DeleteSoldier extends Component {
         
         this.DeleteSoldier = this.DeleteSoldier.bind(this);
 
-    }//constructor
+    }//constructors
 
      componentDidMount()
      {
